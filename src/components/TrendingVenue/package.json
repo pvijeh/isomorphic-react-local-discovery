@@ -1,0 +1,6 @@
+{
+  "name": "TrendingVenue",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TrendingVenue.js"
+}
