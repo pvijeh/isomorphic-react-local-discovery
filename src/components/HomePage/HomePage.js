@@ -4,6 +4,7 @@ import React, { PropTypes, Component } from 'react';
 import styles from './HomePage.css';
 import withStyles from '../../decorators/withStyles';
 import TrendingVenue from '../TrendingVenue';
+import VenueList from '../VenueList';
 
 @withStyles(styles)
 
@@ -21,7 +22,7 @@ class HomePage extends React.Component {
         <div className="HomePage-container">
           <h1>{title}</h1>
         </div>
-        <TrendingVenue/>
+        <VenueList/>
       </div>
     );
   }
