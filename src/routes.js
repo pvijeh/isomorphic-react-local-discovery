@@ -12,6 +12,7 @@ import NotFoundPage from './components/NotFoundPage';
 import ErrorPage from './components/ErrorPage';
 import HomePage from './components/HomePage';
 import TrendingVenue from './components/TrendingVenue';
+import TestVenue from './components/TestVenue';
 
 
 const router = new Router(on => {
@@ -23,6 +24,8 @@ const router = new Router(on => {
   on('/contact', async () => <ContactPage />);
 
   on('/', async () => <HomePage />);
+
+  on('/testvenue/', async () => <TestVenue />);
 
   on('/login', async () => <LoginPage />);
 
