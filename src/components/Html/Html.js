@@ -37,7 +37,8 @@ class Html extends Component {
         <title>{this.props.title}</title>
         <meta name="description" content={this.props.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <link rel="stylesheet" type="style/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,600,300' rel='stylesheet' type='text/css' />
         <style id="css" dangerouslySetInnerHTML={{__html: this.props.css}} />
       </head>
       <body>

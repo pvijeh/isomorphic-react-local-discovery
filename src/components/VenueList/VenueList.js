@@ -8,16 +8,16 @@ import TrendingVenue from '../TrendingVenue';
 // this is temporary data to be replaced with 
 
 let trendingVenues = [
-  {id: 1, venue: 'venue name', votes: 1, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/testvenue'},
-  {id: 2, venue: 'venue name', votes: 2, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/1'},
-  {id: 3, venue: 'venue name', votes: 3, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/2'},
-  {id: 4, venue: 'venue name', votes: 4, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/3'},
-  {id: 5, venue: 'venue name', votes: 5, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/4'},
-  {id: 6, venue: 'venue name', votes: 6, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/5'},
-  {id: 7, venue: 'venue name', votes: 7, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/6'},
-  {id: 8, venue: 'venue name', votes: 8, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/7'},
-  {id: 9, venue: 'venue name', votes: 9, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/8'},
-  {id: 10, venue: 'venue name', votes: 10, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/9'}
+  {id: 1, venue: 'venue name', votes: 111, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/testvenue'},
+  {id: 2, venue: 'venue name', votes: 211, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/1'},
+  {id: 3, venue: 'venue name', votes: 311, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/2'},
+  {id: 4, venue: 'venue name', votes: 411, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/3'},
+  {id: 5, venue: 'venue name', votes: 511, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/4'},
+  {id: 6, venue: 'venue name', votes: 611, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/5'},
+  {id: 7, venue: 'venue name', votes: 711, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/6'},
+  {id: 8, venue: 'venue name', votes: 811, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/7'},
+  {id: 9, venue: 'venue name', votes: 911, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/8'},
+  {id: 10, venue: 'venue name', votes: 101, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/9'}
 ];
 
 @withStyles(styles)

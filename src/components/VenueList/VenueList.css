@@ -5,3 +5,119 @@
 .VenueList-container {
   
   }
+
+  .TrendingVenue-container {
+      margin: 5px auto;
+      padding: 10px 10px 10px 10px;
+      max-width: var(--max-content-width);
+      height: 130px; 
+      width: 92%;
+      max-width: 900px; 
+      box-sizing: border-box;
+      color: #666;
+      border-radius: 3px; 
+      transition: 0.3s;
+      cursor:pointer;
+      position: relative;
+      z-index:1;
+
+        a { 
+        position:absolute; 
+        height: 100%;
+        width: 100% ;
+        top:0;
+        left:0;
+        }
+
+      &:hover{
+        background-color: rgba(50,50,50,.10);
+      }
+
+      div {
+        box-sizing: border-box;
+        float:left; 
+        height: 110px; 
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      h3 {
+        font-size: 2.2rem;
+        line-height: 2.6rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem 0;
+      }
+
+      div:nth-child(n){
+        /*background-color:blue;*/
+      }
+
+      div:nth-child(2n){
+        /*background-color:green;*/
+      }
+
+      div:nth-child(3n){
+        /*background-color:blue;*/
+      }
+
+      div:nth-child(4n){
+        /*background-color:green;*/
+      }
+
+}
+
+div.TrendingVenue-VoteContainer{
+    width: 15%; 
+    padding: 10px 10px 10px 0px; 
+    position: relative;
+    z-index:10;
+    display: table;
+    text-align: center;
+    cursor: initial; 
+
+    p {
+        display: table-cell;
+        vertical-align: middle;
+        width:100%;
+        text-align: center;
+        opacity: 0.8;
+        -webkit-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+    }
+
+    p:hover {
+        opacity: 1;
+        -webkit-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+    }
+    
+    p.TrendingVenue-VoteButton:before {
+        font-family: FontAwesome;
+        content: "\f0d8";
+        display: block; 
+        height: 22px;
+        width: 44px;  
+        font-size: 44px;
+        text-align: center;
+        position: absolute; 
+        top: 22px;
+        left: 50%; 
+        margin-left: -26px; 
+    }
+
+}
+
+
+.TrendingVenue-ImageContainer{
+    width: 20%; 
+}
+
+.TrendingVenue-TextContainer{
+    width: 65%; 
+    padding: 0px 10px 0px 10px;
+}
