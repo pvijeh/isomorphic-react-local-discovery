@@ -13,7 +13,7 @@ import ErrorPage from './components/ErrorPage';
 import HomePage from './components/HomePage';
 import TrendingVenue from './components/TrendingVenue';
 import TestVenue from './components/TestVenue';
-
+import VenueProfile from './components/VenueProfile';
 
 const router = new Router(on => {
   on('*', async (state, next) => {
@@ -28,6 +28,8 @@ const router = new Router(on => {
   on('/testvenue/', async () => <TestVenue />);
 
   on('/login', async () => <LoginPage />);
+
+    on('/venue', async () => <VenueProfile />);
 
   on('/register', async () => <RegisterPage />);
 
