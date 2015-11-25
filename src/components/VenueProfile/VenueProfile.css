@@ -3,17 +3,27 @@
 @import '../variables.css';
 
 .VenueProfile-container {
-    background-color: red; 
     min-height: 500px; 
-  margin: 0 auto;
-  padding: 0 0 40px;
-  width: 96%;
-  max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 0 40px;
+    width: 96%;
+    max-width: var(--max-content-width);
+
+  h1{
+    text-align: center;
+  }
+
+  h3{
+    font-size: 3.0rem;
+    line-height: 3.4rem;
+    margin-bottom: 2.0rem;
+    text-align: center;
+  }
+
 }
 
 .VenueProfile-ImageContainer{
     width:100%;
-    height: 300px; 
     background-color: green;
     text-align: center;
 }
@@ -36,30 +46,92 @@
 .VenueProfile-ReviewSection{
     width: 100%;
     background-color: purple;
-    height: 500px;
+    padding: 15px 0px 15px 0px;
 }
 
 .VenueProfile-BestListItemRow:after{
     display: table;
-    width: !00%;
+    width: 100%;
     content: "";
 }
 
 .VenueProfile-BestListItemColumn {
     width: 50%; 
     float: left;
-    background-color: black ; 
-}
+    background-color: black; 
 
+    h3 {
+        font-size: 2.8rem;
+        line-height: 3.2rem;
+        padding-left: 4rem;
+        padding-right: 4rem; 
+    }
+}
 
 .VenueProfile-BestListItem{
     background-color:yellow;
-    height: 80px; 
+    height: 60px; 
     width: 90%;
     margin:15px auto;
+    position: relative;
+
+    a { 
+        position:absolute; 
+        height: 100%;
+        width: 100% ;
+        top:0;
+        left:0;
+        z-index: 1;
+        }
 }
 
+.VenueProfile-ListItemVoteContainer{
+    background-color: red;
+    width: 80px; 
+    display: table; 
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:8px; 
+    position: relative;
+    z-index: 2;
 
+    span {
+        display:table-cell;
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        vertical-align: middle;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        opacity:.8;
+        -webkit-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+        cursor: pointer;
+    }
 
+    span:hover{
+        opacity: 1;
+        -webkit-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+    }
 
+    span:before{
+    font-family: FontAwesome;
+    content: "\f0d8";
+    positio:absolute; 
+    top: 0px;
+    font-size: 30px;
+    text-align: center;
+    height: 15px; 
+    display:block;
+    left: 50%;
+    margin-left: 16px;
+    width: 30px; 
+    }
 
+}
