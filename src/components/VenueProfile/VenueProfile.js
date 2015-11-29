@@ -32,8 +32,7 @@ class VenueProfileItem extends Component {
         <div className="VenueProfile-ListItemVoteContainer">
           <span>1111</span>
         </div>
-        <div className="VenueProfile-ListItemIcon">
-          <img src="http://lorempixel.com/80/80/" />
+        <div className="VenueProfile-ListItemIcon fa fa-adjust">
         </div>
         <div className="VenueProfile-ListItemText">
           <p>lorem lorem  lorem  lorem  lorem  lorem </p>
@@ -44,12 +43,29 @@ class VenueProfileItem extends Component {
 
 }
 
-
-
-
 @withStyles(styles)
 class VenueProfile extends Component {
 
+constructor (props) {
+    super(props)
+    this.state =  { 
+      number_favoriteTags: 10,
+      number_CrowdTags: 5,
+      number_OtherTags: 5,
+      number_BestListTags: 10 
+    }
+  }
+
+  handleClick_AddTag = event =>{
+    console.log(event);
+
+    if (event === 'addTag'){
+
+    } else if (event ==='viewMore'){
+
+    }
+
+  }
   // not sure what this context stuff is about,  need to research it 
 
   // static contextTypes = {
@@ -71,11 +87,16 @@ class VenueProfile extends Component {
        venueList_OtherTags = [],
        venueList_BestListTags = []; 
 
+        // loops through data object and adds a VenueProfileItem for each Object
+        // list --> an array to contain each component 
+        // component --> the component that gets added for each item in the data array 
+        // data --> an array of data 
+        // number --> how many items from the array render initially 
+
         function venueListIterator(list, component, data , number){
           
             if (typeof data != 'undefined' ){
               data.forEach(function(item, i){
-                console.log(i);
                 if (i < number ){
                   list.push(<VenueProfileItem key={item.id} item={item}/>); 
                 }
@@ -83,10 +104,10 @@ class VenueProfile extends Component {
           }
         }
        
-        venueListIterator(venueList_favoriteTags, VenueProfileItem, trendingVenues, 10); 
-        venueListIterator(venueList_CrowdTags, VenueProfileItem, trendingVenues, 5); 
-        venueListIterator(venueList_OtherTags, VenueProfileItem, trendingVenues, 5); 
-        venueListIterator(venueList_BestListTags, VenueProfileItem, trendingVenues, 10); 
+        venueListIterator(venueList_favoriteTags, VenueProfileItem, trendingVenues, this.state.number_favoriteTags); 
+        venueListIterator(venueList_CrowdTags, VenueProfileItem, trendingVenues, this.state.number_CrowdTags); 
+        venueListIterator(venueList_OtherTags, VenueProfileItem, trendingVenues, this.state.number_OtherTags); 
+        venueListIterator(venueList_BestListTags, VenueProfileItem, trendingVenues, this.state.number_BestListTags); 
 
     // not sure what this context stuff is about,  need to research it 
 
@@ -106,34 +127,53 @@ class VenueProfile extends Component {
           
         <div className="VenueProfile-ReviewSection">
           <h3>{reviewSectionOne+venue}</h3>
-          <div className="VenueProfile-BestListItemRow">
 
               {venueList_favoriteTags}
+
+                <div className="VenueProfile-ButtonContainer">
+                  <button onClick={this.handleClick_AddTag.bind(this, 'viewMore')}> View More Tags </button> 
+                  <button onClick={this.handleClick_AddTag.bind(this, 'addTag')}> Add New Tag </button> 
+                </div>
  
-          </div>    
         </div>
           
           <div className="VenueProfile-ReviewSection">
-            <div className="VenueProfile-BestListItemRow">
               <h3>{venue+reviewSectionFour}</h3>
 
                 {venueList_CrowdTags}
 
+                <div className="VenueProfile-ButtonContainer">
+                  <button> View More Tags </button> 
+                  <button> Add New Tag </button> 
+                </div>
+
+          </div>
+
+          <div className="VenueProfile-ReviewSection">
+
               <h3>{venue+reviewSectionFour}</h3>
           
                 {venueList_OtherTags}
+
+                <div className="VenueProfile-ButtonContainer">
+                  <button> View More Tags </button> 
+                  <button> Add New Tag </button> 
+                </div>
        
-            </div>
           </div>
 
         <div className="VenueProfile-ReviewSection">
           <h3>{reviewSectionOne+venue}</h3>
-          <div className="VenueProfile-BestListItemRow">
               {venueList_BestListTags}
-          </div>    
+
+                <div className="VenueProfile-ButtonContainer">
+                  <button> View More Tags </button> 
+                  <button> Add New Tag </button> 
+                </div>
+
         </div>
 
-          <div className="VenueProfile-ImageContainer VenueProfile-BestListItemRow">
+          <div className="VenueProfile-ImageContainer VenueProfile-ReviewSection">
               <div className="VenueProfile-Image">image</div>
               <div className="VenueProfile-Image">image</div>
               <div className="VenueProfile-Image">image</div>

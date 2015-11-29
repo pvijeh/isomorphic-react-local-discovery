@@ -21,6 +21,7 @@ html {
 body {
   font-size: 2rem; 
    line-height: 2.4rem; 
+   position: relative;
 }
 
 /*
@@ -206,6 +207,33 @@ textarea {
   h6 {
     font-size: 2.4rem;
     line-height: 3.2rem; 
+  }
+
+  button {
+    padding:10px;
+    margin: 15px; 
+    border-radius: 5px; 
+    border: 2px solid red;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    background-color: transparent;
+    min-width: 200px; 
+    opacity: .8;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+
+    &:focus{
+      outline:none;
+    }
+
+    &:active{
+      outline:none;
+    }
+  }
+
+  button:hover{
+    opacity: 1;
   }
 
 

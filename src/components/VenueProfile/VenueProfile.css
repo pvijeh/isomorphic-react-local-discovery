@@ -16,7 +16,7 @@
   h3{
     font-size: 3.0rem;
     line-height: 3.4rem;
-    margin-bottom: 2.0rem;
+    margin-bottom: 6.0rem;
     text-align: center;
   }
 
@@ -47,19 +47,24 @@
     width: 100%;
     text-align: center;
     background-color: purple;
-    padding: 15px 0px 15px 0px;
+    padding: 100px 0px 100px 0px;
 }
 
-.VenueProfile-BestListItemRow:after{
+.VenueProfile-ReviewSection:after{
     display: table;
     width: 100%;
     content: "";
+}
+
+.VenueProfile-ReviewSection:nth-child(2n){
+    background-color: #9d9d9d; 
 }
 
 .VenueProfile-BestListItemColumn {
     width: 50%; 
     float: left;
     background-color: black; 
+
 
     h3 {
         font-size: 2.8rem;
@@ -70,31 +75,43 @@
 }
 
 .VenueProfile-BestListItem{
-
-    background-color:yellow;
     height: 60px; 
     width: 96%;
     max-width: 450px;
     margin: 5px 15px;
     position: relative;
     display:inline-block;
+    border-radius: 5px; 
+    opacity: 0.8;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
 
     a { 
         position:absolute; 
+        border-radius: 5px; 
         height: 100%;
         width: 100% ;
         top:0;
         left:0;
         z-index: 1;
         }
+
+        &:hover {
+            opacity:1;
+            background-color: rgba(50,50,50,.15);
+        }
 }
 
 .VenueProfile-ListItemIcon{
-        
-        background-color: purple;
         height: 100%;
         width: 16%;
-        float: left; 
+        float: left;
+        font-size: 50px; 
+        line-height: 60px; 
+        text-align: center; 
+        margin:0;
+        padding:0;
 
         img {
             max-width: 100%;
@@ -106,7 +123,6 @@
 .VenueProfile-ListItemText {
     width: 68%;
     height: 100%;
-    background-color: orange;
     display:table;
     text-align: left; 
     padding: 0 10px; 
@@ -122,9 +138,14 @@
     }
 }
 
+.VenueProfile-ButtonContainer{
+    width: 100%;
+    text-align: center; 
+    margin: 30px auto;
+}
+
 .VenueProfile-ListItemVoteContainer{
     width: 16%;
-    background-color: green;
     display: table; 
     height: 100%;
     float: left;

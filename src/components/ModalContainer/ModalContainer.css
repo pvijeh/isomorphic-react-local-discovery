@@ -1,0 +1,15 @@
+/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
+
+@import '../variables.css';
+
+.ModalContainer-wrap{
+  position:fixed;
+  height: 100%;
+  width: 100%;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:10;
+  background-color: rgba(255,0,0,.5);
+}
