@@ -4,44 +4,23 @@ import React, { PropTypes, Component } from 'react';
 import withStyles from '../../decorators/withStyles';
 import styles from './VenueProfile.css';
 import Link from '../Link';
+import AppActions from '../../actions/appActions';
+import ListItem from '../ListItem';
 
 
 let trendingVenues = [
-  {id: 1, venue: 'venue name', votes: 111, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/testvenue'},
-  {id: 2, venue: 'venue name', votes: 211, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/1'},
-  {id: 3, venue: 'venue name', votes: 311, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/2'},
-  {id: 4, venue: 'venue name', votes: 411, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/3'},
-  {id: 5, venue: 'venue name', votes: 511, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/4'},
-  {id: 6, venue: 'venue name', votes: 611, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/5'},
-  {id: 7, venue: 'venue name', votes: 711, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/6'},
-  {id: 8, venue: 'venue name', votes: 811, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/7'},
-  {id: 9, venue: 'venue name', votes: 911, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/8'},
-  {id: 10, venue: 'venue name', votes: 101, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/9'}
+  {id: 1, venue: 'venue name', votes: 111, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 2, venue: 'venue name', votes: 211, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 3, venue: 'venue name', votes: 311, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 4, venue: 'venue name', votes: 411, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 5, venue: 'venue name', votes: 511, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 6, venue: 'venue name', votes: 611, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 7, venue: 'venue name', votes: 711, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 8, venue: 'venue name', votes: 811, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 9, venue: 'venue name', votes: 911, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 10, venue: 'venue name', votes: 101, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 11, venue: 'venue name', votes: 11111, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'}
 ];
-
-
-
-
-class VenueProfileItem extends Component {
-
-  render(){
-
-    return(
-      <div className="VenueProfile-BestListItem">
-        <a href="/about" onClick={Link.handleClick}></a>
-        <div className="VenueProfile-ListItemVoteContainer">
-          <span>1111</span>
-        </div>
-        <div className="VenueProfile-ListItemIcon fa fa-adjust">
-        </div>
-        <div className="VenueProfile-ListItemText">
-          <p>lorem lorem  lorem  lorem  lorem  lorem </p>
-        </div>
-      </div>
-      )
-  }
-
-}
 
 @withStyles(styles)
 class VenueProfile extends Component {
@@ -49,6 +28,7 @@ class VenueProfile extends Component {
 constructor (props) {
     super(props)
     this.state =  { 
+      trendingVenues: trendingVenues, 
       number_favoriteTags: 10,
       number_CrowdTags: 5,
       number_OtherTags: 5,
@@ -57,11 +37,45 @@ constructor (props) {
   }
 
   handleClick_AddTag = event =>{
-    console.log(event);
 
-    if (event === 'addTag'){
+    if (event[1] === 'addTag'){
 
-    } else if (event ==='viewMore'){
+      AppActions.displayPopup(event);
+
+    } else if (event[1] ==='viewMore'){
+
+      console.log(event[2]);
+      
+      switch (event[2]) {
+        
+        case "favoriteTag":
+          console.log("favoriteTag");
+          console.log(this.state.number_favoriteTags);
+          this.setState({
+            number_favoriteTags: this.state.number_favoriteTags+10
+          })
+          console.log(this.state.number_favoriteTags);
+          break;
+
+        case "crowdTag":
+          this.setState({
+            number_CrowdTags: this.state.number_CrowdTags+5
+          })
+          break;
+
+        case "otherTag":
+          this.setState({
+            number_OtherTags : this.state.number_OtherTags+5
+          })
+          break;
+
+        case "bestListTag":
+          this.setState({
+            number_BestListTags: this.state.number_BestListTags+10
+          })
+          break;
+      }
+      
 
     }
 
@@ -87,27 +101,29 @@ constructor (props) {
        venueList_OtherTags = [],
        venueList_BestListTags = []; 
 
+       // this needs to be added to some sort of view helpers file that has all my functions / methods for doing view
+
         // loops through data object and adds a VenueProfileItem for each Object
         // list --> an array to contain each component 
         // component --> the component that gets added for each item in the data array 
         // data --> an array of data 
         // number --> how many items from the array render initially 
 
-        function venueListIterator(list, component, data , number){
+        function venueListIterator(list, data , number){
           
             if (typeof data != 'undefined' ){
               data.forEach(function(item, i){
                 if (i < number ){
-                  list.push(<VenueProfileItem key={item.id} item={item}/>); 
+                  list.push(<ListItem key={item.id} item={item}/>); 
                 }
             }); 
           }
         }
        
-        venueListIterator(venueList_favoriteTags, VenueProfileItem, trendingVenues, this.state.number_favoriteTags); 
-        venueListIterator(venueList_CrowdTags, VenueProfileItem, trendingVenues, this.state.number_CrowdTags); 
-        venueListIterator(venueList_OtherTags, VenueProfileItem, trendingVenues, this.state.number_OtherTags); 
-        venueListIterator(venueList_BestListTags, VenueProfileItem, trendingVenues, this.state.number_BestListTags); 
+        venueListIterator(venueList_favoriteTags, this.state.trendingVenues, this.state.number_favoriteTags); 
+        venueListIterator(venueList_CrowdTags, this.state.trendingVenues, this.state.number_CrowdTags); 
+        venueListIterator(venueList_OtherTags, this.state.trendingVenues, this.state.number_OtherTags); 
+        venueListIterator(venueList_BestListTags, this.state.trendingVenues, this.state.number_BestListTags); 
 
     // not sure what this context stuff is about,  need to research it 
 
@@ -131,8 +147,8 @@ constructor (props) {
               {venueList_favoriteTags}
 
                 <div className="VenueProfile-ButtonContainer">
-                  <button onClick={this.handleClick_AddTag.bind(this, 'viewMore')}> View More Tags </button> 
-                  <button onClick={this.handleClick_AddTag.bind(this, 'addTag')}> Add New Tag </button> 
+                  <button onClick={this.handleClick_AddTag.bind(this, [true, 'viewMore', 'favoriteTag' ] )}> View More Tags </button> 
+                  <button onClick={this.handleClick_AddTag.bind(this, [true , 'addTag', 'favoriteTag', this.state.trendingVenues] )}> Add New Tag </button> 
                 </div>
  
         </div>
