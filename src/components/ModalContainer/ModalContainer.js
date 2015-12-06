@@ -5,34 +5,37 @@ import styles from './ModalContainer.css';
 import withStyles from '../../decorators/withStyles';
 import Link from '../Link';
 import AppActions from '../../actions/appActions';
-import ListItem from '../ListItem'; 
-
+import ModalListItem from '../ModalListItem'; 
 
 @withStyles(styles)
 class ModalContainer extends Component {
+  constructor (props) {
+    super(props)
+    this.state =  { 
+      TemporaryModalListItem: this.props.data
+    }
+  }
 
     handleClick_AddTag = event =>{
-
       AppActions.displayPopup(event);
-
   }
 
   render() {
 
-    let modalItems = []; 
+    let modalItems = [];  
 
      function venueListIterator(list, data , number){
           
             if ( typeof data != 'undefined' ){
               data.forEach(function(item, i){
-                if (i < number ){
-                  list.push(<ListItem key={item.id} item={item}/>); 
+                if (i < number && item.votes === 0 ){
+                  list.push(<ModalListItem key={item.id} item={item}/>); 
                 }
             }); 
           }
         }
 
-        venueListIterator(modalItems, this.props.data, 100); 
+        venueListIterator(modalItems, this.state.TemporaryModalListItem, 100); 
 
 
     if (this.props.data){

@@ -14,6 +14,7 @@ import HomePage from './components/HomePage';
 import TrendingVenue from './components/TrendingVenue';
 import TestVenue from './components/TestVenue';
 import VenueProfile from './components/VenueProfile';
+import ModalListItem from './components/ModalListItem';
 
 const router = new Router(on => {
   on('*', async (state, next) => {
@@ -26,6 +27,8 @@ const router = new Router(on => {
   on('/', async () => <HomePage />);
 
   on('/testvenue/', async () => <TestVenue />);
+
+  on('/ModalListItem', async () => <ModalListItem />);
 
   on('/login', async () => <LoginPage />);
 

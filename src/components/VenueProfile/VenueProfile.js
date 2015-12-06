@@ -9,17 +9,26 @@ import ListItem from '../ListItem';
 
 
 let trendingVenues = [
-  {id: 1, venue: 'venue name', votes: 111, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 2, venue: 'venue name', votes: 211, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 3, venue: 'venue name', votes: 311, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 4, venue: 'venue name', votes: 411, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 5, venue: 'venue name', votes: 511, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 6, venue: 'venue name', votes: 611, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 7, venue: 'venue name', votes: 711, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 8, venue: 'venue name', votes: 811, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 9, venue: 'venue name', votes: 911, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 10, venue: 'venue name', votes: 101, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 11, venue: 'venue name', votes: 11111, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'}
+  {id: 1, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 2, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 3, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 4, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 5, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 6, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 7, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 8, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 9, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 10, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 11, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 12, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 13, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 14, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 15, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 16, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 17, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 18, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 19, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
+  {id: 20, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'}
 ];
 
 @withStyles(styles)

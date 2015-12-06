@@ -103,6 +103,37 @@
         }
 }
 
+.VenueProfile-BestListItem--modal{
+    max-width: 250px;
+    height: 40px; 
+    margin: 5px 10px;
+    border: 1px solid rgba(50,50,50,.05);
+    opacity:.75;
+    cursor:pointer;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+
+    &:hover{
+        opacity: 1;
+    }
+
+    .VenueProfile-ListItemText{
+        width: 75%;
+    }
+
+    .VenueProfile-ListItemIcon{
+        width: 25%; 
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    .VenueProfile-ListItemText p {
+        font-size: 1.4rem;
+        line-height: 1.5rem;
+    }
+}
+
 .VenueProfile-ListItemIcon{
         height: 100%;
         width: 16%;
