@@ -114,10 +114,6 @@
     -o-transition: 0.3s;
     transition: 0.3s;
 
-    &:hover{
-        opacity: 1;
-    }
-
     .VenueProfile-ListItemText{
         width: 75%;
     }
@@ -131,6 +127,14 @@
     .VenueProfile-ListItemText p {
         font-size: 1.4rem;
         line-height: 1.5rem;
+    }
+}
+
+.VenueProfile-BestListItem--modalSelected{
+    background-color:red; 
+    
+    &:hover {
+        background-color: red;
     }
 }
 

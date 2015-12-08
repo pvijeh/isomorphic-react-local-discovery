@@ -12,15 +12,37 @@ class ModalContainer extends Component {
   constructor (props) {
     super(props)
     this.state =  { 
-      TemporaryModalListItem: this.props.data
+      temporaryModalListItem: this.props.data,
     }
+    this.doSomeShit = this.doSomeShit.bind(this); 
   }
 
     handleClick_AddTag = event =>{
       AppActions.displayPopup(event);
+
+      // need to send data to store about which items were selected and then update the state / data on the server and on venueprofile.js 
+
+  }
+
+    doSomeShit (event) {
+
+      let temporaryModalListItem = this.state.temporaryModalListItem; 
+
+      if (event.selected === true ) {
+        temporaryModalListItem[event.id -1].selected = false; 
+      } else {
+        temporaryModalListItem[event.id -1].selected = true; 
+      }
+
+        this.setState({
+          temporaryModalListItem : temporaryModalListItem        
+        });
+
   }
 
   render() {
+
+    let that = this; 
 
     let modalItems = [];  
 
@@ -29,17 +51,17 @@ class ModalContainer extends Component {
             if ( typeof data != 'undefined' ){
               data.forEach(function(item, i){
                 if (i < number && item.votes === 0 ){
-                  list.push(<ModalListItem key={item.id} item={item}/>); 
+                  list.push(<ModalListItem key={item.id} item={item} doSomeShit={that.doSomeShit} />); 
                 }
-            }); 
+            }.bind(this)); 
           }
         }
 
-        venueListIterator(modalItems, this.state.TemporaryModalListItem, 100); 
+        venueListIterator(modalItems, this.state.temporaryModalListItem, 100); 
 
 
     if (this.props.data){
-        console.log(this.props.data);
+        // console.log(this.props.data);
     }    
   
   return (

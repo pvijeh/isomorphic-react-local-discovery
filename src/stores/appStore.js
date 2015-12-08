@@ -3,19 +3,9 @@ import AppDispatcher from '../core/Dispatcher';
 import EventEmitter from 'eventemitter3'; 
 import assign from 'object-assign'; 
 
-
-let _content = [];
 let _popupState = '';
 
 class AppStoreProto extends EventEmitter {
-    constructor(){
-        super();
-         _content = [];
-    }
-
-    getAll() {
-        return _content; 
-    }
 
     sendPopupState(){
         return _popupState; 
