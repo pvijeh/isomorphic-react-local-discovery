@@ -5,10 +5,11 @@ import withStyles from '../../decorators/withStyles';
 import styles from './VenueProfile.css';
 import Link from '../Link';
 import AppActions from '../../actions/appActions';
+import AppStore from '../../stores/appStore'; 
 import ListItem from '../ListItem';
 
 
-let trendingVenues = [
+let venues = [
   {id: 1, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
   {id: 2, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
   {id: 3, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
@@ -31,64 +32,76 @@ let trendingVenues = [
   {id: 20, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'}
 ];
 
+// gets the new venues list from the store 
+let getPopupState = function() {
+  return AppStore.sendPopupState();
+};
+
 @withStyles(styles)
 class VenueProfile extends Component {
 
 constructor (props) {
     super(props)
     this.state =  { 
-      trendingVenues: trendingVenues, 
+      trendingVenues: venues, 
       number_favoriteTags: 10,
       number_CrowdTags: 5,
       number_OtherTags: 5,
       number_BestListTags: 10 
     }
+    this.onCloseModal = this.onCloseModal.bind(this);
   }
 
-  handleClick_AddTag = event =>{
 
-    if (event[1] === 'addTag'){
-
+  handleClick_addTag = event =>{
+      // sends popup click event to actions 
       AppActions.displayPopup(event);
+  } 
 
-    } else if (event[1] ==='viewMore'){
+  handleClick_viewMoreTags = event =>{
 
-      console.log(event[2]);
-      
-      switch (event[2]) {
+    switch (event[2]) {
         
         case "favoriteTag":
-          console.log("favoriteTag");
-          console.log(this.state.number_favoriteTags);
-          this.setState({
-            number_favoriteTags: this.state.number_favoriteTags+10
-          })
-          console.log(this.state.number_favoriteTags);
+          this.setState({ number_favoriteTags: this.state.number_favoriteTags+10 })
           break;
 
         case "crowdTag":
-          this.setState({
-            number_CrowdTags: this.state.number_CrowdTags+5
-          })
+        this.setState({ number_CrowdTags: this.state.number_CrowdTags+5 })
           break;
 
         case "otherTag":
-          this.setState({
-            number_OtherTags : this.state.number_OtherTags+5
-          })
+          this.setState({ number_OtherTags : this.state.number_OtherTags+5 })
           break;
 
         case "bestListTag":
-          this.setState({
-            number_BestListTags: this.state.number_BestListTags+10
-          })
+          this.setState({ number_BestListTags: this.state.number_BestListTags+10 })
           break;
       }
-      
+   } 
 
+  onCloseModal () {
+
+    let popState = getPopupState();
+
+    // checks if the modal action was a close 
+    // if it was a close,  then it will check for new selected venues 
+    if (popState[0] == false ) {    
+      this.setState({
+      trendingVenues : popState[1]
+      });
     }
-
   }
+
+componentWillMount () {
+  AppStore.addChangeListener(this.onCloseModal);
+}
+
+componentWillUnmount() {
+    AppStore.removeChangeListener(this.onCloseModal);
+  }
+
+
   // not sure what this context stuff is about,  need to research it 
 
   // static contextTypes = {
@@ -122,7 +135,7 @@ constructor (props) {
           
             if (typeof data != 'undefined' ){
               data.forEach(function(item, i){
-                if (i < number ){
+                if (i < number && item.votes > 0 ){
                   list.push(<ListItem key={item.id} item={item}/>); 
                 }
             }); 
@@ -156,8 +169,8 @@ constructor (props) {
               {venueList_favoriteTags}
 
                 <div className="VenueProfile-ButtonContainer">
-                  <button onClick={this.handleClick_AddTag.bind(this, [true, 'viewMore', 'favoriteTag' ] )}> View More Tags </button> 
-                  <button onClick={this.handleClick_AddTag.bind(this, [true , 'addTag', 'favoriteTag', this.state.trendingVenues] )}> Add New Tag </button> 
+                  <button onClick={this.handleClick_viewMoreTags.bind(this, [true, 'viewMore', 'favoriteTag' ] )}> View More Tags </button> 
+                  <button onClick={this.handleClick_addTag.bind(this, [true , 'addTag', 'favoriteTag', this.state.trendingVenues] )}> Add New Tag </button> 
                 </div>
  
         </div>

@@ -27,10 +27,11 @@ class TrendingVenue extends Component {
     var TrendingVenues = [];
 
     const title = 'this thing title ';
+
     this.context.onSetTitle(title);
     return (
           <div className="TrendingVenue-container">
-            <a href="/about" onClick={Link.handleClick}></a>
+            <a href={`/venue/${this.props.item.id}`} onClick={Link.handleClick}></a>
               <div className="TrendingVenue-VoteContainer">
 
                   <p className="TrendingVenue-VoteButton" onClick={this.handleVoteClick.bind(this)}>{this.props.item.votes}</p>

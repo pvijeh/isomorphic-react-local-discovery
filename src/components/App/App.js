@@ -12,9 +12,6 @@ import Footer from '../Footer';
 import ModalContainer from '../ModalContainer';
 
 let getPopupState = function() {
-
-  console.log(AppStore.sendPopupState());
-
   return {
     displayModalState: AppStore.sendPopupState()
   };   
@@ -58,7 +55,7 @@ componentWillUnmount() {
     if(this.state.displayModalState === true && ExeNv.canUseDOM === true ){
         displayModal =       <ModalContainer data={this.state.displayModalData} />; 
 
-        console.log(this.state.displayModalData);
+        // console.log(this.state.displayModalData);
 
     }
 

@@ -32,7 +32,7 @@ const router = new Router(on => {
 
   on('/login', async () => <LoginPage />);
 
-    on('/venue', async () => <VenueProfile />);
+  on('/venue/:id', async (state) => <VenueProfile /> );      
 
   on('/register', async () => <RegisterPage />);
 
