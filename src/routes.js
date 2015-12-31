@@ -32,7 +32,12 @@ const router = new Router(on => {
 
   on('/login', async () => <LoginPage />);
 
-  on('/venue/:id', async (state) => <VenueProfile /> );      
+  // on('/venue/:id', async (state) => <VenueProfile /> );      
+
+    on('/venue/:id', async (state) => {
+      const content = await http.get(`http://104.131.179.151:3001/api/Votes/getplacevotesbycategory?id=${state.params.id}`);
+      return content && <VenueProfile content={content} />;
+  });  
 
   on('/register', async () => <RegisterPage />);
 
