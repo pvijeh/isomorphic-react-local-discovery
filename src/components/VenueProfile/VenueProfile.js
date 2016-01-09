@@ -9,6 +9,7 @@ import AppStore from '../../stores/appStore';
 import ListItem from '../ListItem';
 
 
+
 let venues = [
   {id: 1, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
   {id: 2, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
@@ -51,7 +52,6 @@ constructor (props) {
     }
     this.onCloseModal = this.onCloseModal.bind(this);
   }
-
 
   handleClick_addTag = event =>{
       // sends popup click event to actions 
@@ -101,7 +101,6 @@ componentWillUnmount() {
     AppStore.removeChangeListener(this.onCloseModal);
   }
 
-
   // not sure what this context stuff is about,  need to research it 
 
   // static contextTypes = {
@@ -112,6 +111,9 @@ componentWillUnmount() {
   // };
 
   render() {
+
+    console.log(this.props.content);
+
     const venue = 'Venue Name';
     const reviewSectionOne = 'Why People Like ';
     const reviewSectionTwo = 'What Kind of Crowd Goes to ';
