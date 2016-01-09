@@ -44,7 +44,7 @@ class VenueProfile extends Component {
 constructor (props) {
     super(props)
     this.state =  { 
-      trendingVenues: venues, 
+      trendingVenues: this.props.content.success.placeAttributes, 
       number_favoriteTags: 10,
       number_CrowdTags: 5,
       number_OtherTags: 5,
@@ -112,7 +112,7 @@ componentWillUnmount() {
 
   render() {
 
-    console.log(this.props.content);
+    console.log(this.props.content.success.placeAttributes);
 
     const venue = 'Venue Name';
     const reviewSectionOne = 'Why People Like ';
@@ -137,8 +137,8 @@ componentWillUnmount() {
           
             if (typeof data != 'undefined' ){
               data.forEach(function(item, i){
-                if (i < number && item.votes > 0 ){
-                  list.push(<ListItem key={item.id} item={item}/>); 
+                if (i < number && item.count > 0 ){
+                  list.push(<ListItem key={item.Id} item={item}/>); 
                 }
             }); 
           }

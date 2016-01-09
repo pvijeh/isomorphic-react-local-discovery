@@ -25,8 +25,8 @@ class ModalContainer extends Component {
       this.state.temporaryModalListItem.forEach( function(item){
 
         if (item.selected == true ) {
-          tempList[item.id - 1].votes = 1;  
-          tempList[item.id - 1].selected = false;  
+          tempList[item.Id - 1].count = 1;  
+          tempList[item.Id - 1].selected = false;  
         }
 
       });
@@ -45,11 +45,15 @@ class ModalContainer extends Component {
 
       let temporaryModalListItem = this.state.temporaryModalListItem; 
 
-      if (event.selected === true ) {
-        temporaryModalListItem[event.id -1].selected = false;
+      if (temporaryModalListItem[event.Id -1].selected === true ) {
+        temporaryModalListItem[event.Id -1].selected = false;
+        console.log(temporaryModalListItem[event.Id -1].selected);
       } else {
-        temporaryModalListItem[event.id -1].selected = true; 
+        temporaryModalListItem[event.Id -1].selected = true; 
+        console.log(temporaryModalListItem[event.Id -1].selected);
       }
+
+      // console.log(temporaryModalListItem); 
 
         this.setState({
           temporaryModalListItem : temporaryModalListItem 
@@ -59,6 +63,7 @@ class ModalContainer extends Component {
 
   render() {
 
+
     let that = this; 
 
     let modalItems = [];  
@@ -67,8 +72,8 @@ class ModalContainer extends Component {
           
             if ( typeof data != 'undefined' ){
               data.forEach(function(item, i){
-                if (i < number && item.votes === 0 ){
-                  list.push(<ModalListItem key={item.id} item={item} doSomeShit={that.doSomeShit} />); 
+                if (i < number && item.count === 0 ){
+                  list.push(<ModalListItem key={item.Id} item={item} doSomeShit={that.doSomeShit} />); 
                 }
             }.bind(this)); 
           }

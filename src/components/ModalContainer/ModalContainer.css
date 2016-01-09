@@ -57,3 +57,8 @@
     left: 50%;
     width: 200px; 
 }
+
+.VenueProfile-BestListItem--modalSelected{
+  background-color: red; 
+}
+
