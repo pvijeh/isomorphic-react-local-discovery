@@ -16,14 +16,11 @@ class ModalListItem extends Component {
 
   render(){
 
-    console.log(this.props.item); 
-
     let selectedClass = ''; 
     if(this.props.item.selected === true ){
+      console.log('do some shiz');
       selectedClass = 'VenueProfile-BestListItem--modalSelected' 
     }
-
-    console.log(this.props.item);
 
     return(
       <div 

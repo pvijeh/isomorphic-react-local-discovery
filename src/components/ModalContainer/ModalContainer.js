@@ -43,14 +43,16 @@ class ModalContainer extends Component {
 
     doSomeShit (event) {
 
+      console.log(event);
+      
       let temporaryModalListItem = this.state.temporaryModalListItem; 
 
       if (temporaryModalListItem[event.Id -1].selected === true ) {
         temporaryModalListItem[event.Id -1].selected = false;
-        console.log(temporaryModalListItem[event.Id -1].selected);
+        // console.log(temporaryModalListItem[event.Id -1].selected);
       } else {
         temporaryModalListItem[event.Id -1].selected = true; 
-        console.log(temporaryModalListItem[event.Id -1].selected);
+        // console.log(temporaryModalListItem[event.Id -1].selected);
       }
 
       // console.log(temporaryModalListItem); 
@@ -58,6 +60,8 @@ class ModalContainer extends Component {
         this.setState({
           temporaryModalListItem : temporaryModalListItem 
         });
+
+        // console.log(this.state.temporaryModalListItem); 
 
   }
 
