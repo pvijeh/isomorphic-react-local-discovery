@@ -35,7 +35,6 @@ class ModalContainer extends Component {
         temporaryModalListItem : tempList
       });
 
-
       // need to send data to store about which items were selected and then update the state / data on the server and on venueprofile.js 
   }
 
@@ -43,30 +42,33 @@ class ModalContainer extends Component {
 
     doSomeShit (event) {
 
-      console.log(event);
-      
-      let temporaryModalListItem = this.state.temporaryModalListItem; 
+      // console.log(event);
 
-      if (temporaryModalListItem[event.Id -1].selected === true ) {
-        temporaryModalListItem[event.Id -1].selected = false;
-        // console.log(temporaryModalListItem[event.Id -1].selected);
+      let modalList = this.state.temporaryModalListItem; 
+
+      if (modalList[event.Id -1].selected === true ) {
+        modalList[event.Id -1].selected = false;
+        // console.log(modalList[event.Id -1].selected);
       } else {
-        temporaryModalListItem[event.Id -1].selected = true; 
+        modalList[event.Id -1].selected = true; 
         // console.log(temporaryModalListItem[event.Id -1].selected);
       }
 
       // console.log(temporaryModalListItem); 
 
         this.setState({
-          temporaryModalListItem : temporaryModalListItem 
+          temporaryModalListItem : modalList 
         });
 
         // console.log(this.state.temporaryModalListItem); 
+
+        console.log(this.state.temporaryModalListItem[event.Id -1].selected); 
 
   }
 
   render() {
 
+    console.log(this.state.temporaryModalListItem); 
 
     let that = this; 
 
@@ -83,7 +85,7 @@ class ModalContainer extends Component {
           }
         }
 
-        venueListIterator(modalItems, this.state.temporaryModalListItem, 100);  
+        venueListIterator(modalItems, this.state.temporaryModalListItem, this.state.temporaryModalListItem.length);  
   
   return (
       <div className="ModalContainer-wrap">

@@ -16,6 +16,8 @@ class ModalListItem extends Component {
 
   render(){
 
+    console.log(this.props.item.count); 
+
     let selectedClass = ''; 
     if(this.props.item.selected === true ){
       console.log('do some shiz');
