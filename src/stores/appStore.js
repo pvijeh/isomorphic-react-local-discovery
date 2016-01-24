@@ -37,6 +37,7 @@ AppStore.dispatchToken = AppDispatcher.register(function (payload) {
 
         case 'display-popup':
         _popupState = payload.action;
+        console.log(_popupState); 
         AppStore.emitChange();
         break;
 

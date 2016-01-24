@@ -7,6 +7,11 @@
 /*
  * Base styles
  * ========================================================================== */
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 html {
   color: #222;
@@ -14,12 +19,13 @@ html {
   font-size: 10px; 
   font-family: var(--font-family-base);
   line-height: 14px; 
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
 
 body {
   font-size: 2rem; 
+  font-weight: 400;
    line-height: 2.4rem; 
    position: relative;
 }
@@ -216,14 +222,14 @@ textarea {
   }
 
   button {
-    padding:10px;
-    margin: 15px; 
+    padding:7px 5px;
+    margin: 5px; 
     border-radius: 5px; 
     border: 2px solid red;
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
     background-color: transparent;
-    min-width: 200px; 
+    min-width: 120px; 
     opacity: .8;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
@@ -241,6 +247,66 @@ textarea {
   button:hover{
     opacity: 1;
   }
+
+/*
+votebutton css 
+*/
+
+  .App-VoteButtonContainer{
+    width: 16%;
+    display: table; 
+    height: 100%;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:8px; 
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+
+    span {
+        display:table-cell;
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        vertical-align: middle;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        opacity:.8;
+        -webkit-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+    }
+
+    span:hover{
+        opacity: 1;
+        color: var(--brand-purple);
+        -webkit-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+    }
+
+    span:before{
+    font-family: FontAwesome;
+    content: "\f0d8";
+    positio:absolute; 
+    top: 0px;
+    font-size: 30px;
+    text-align: center;
+    height: 15px; 
+    display:block;
+    left: 50%;
+    }
+
+}
+
+.App-siteWrapper{
+  padding: 50px 0;
+  background-color: var(--gray-light);
+}
+
 
 
 

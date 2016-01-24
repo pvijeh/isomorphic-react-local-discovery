@@ -24,9 +24,9 @@ class ModalContainer extends Component {
 
       this.state.temporaryModalListItem.forEach( function(item){
 
-        if (item.selected == true ) {
-          tempList[item.id - 1].votes = 1;  
-          tempList[item.id - 1].selected = false;  
+        if (item.selected === true ) {
+          tempList[item.Id ].count = 1;  
+          tempList[item.Id ].selected = false;  
         }
 
       });
@@ -34,6 +34,8 @@ class ModalContainer extends Component {
       this.setState({
         temporaryModalListItem : tempList
       });
+
+      // console.log('mufhafus')
 
 
       // need to send data to store about which items were selected and then update the state / data on the server and on venueprofile.js 
@@ -43,18 +45,23 @@ class ModalContainer extends Component {
 
     doSomeShit (event) {
 
-      let temporaryModalListItem = this.state.temporaryModalListItem; 
+      let temp = this.state.temporaryModalListItem; 
 
-      if (event.selected === true ) {
-        temporaryModalListItem[event.id -1].selected = false;
+      if (temp[event.Id].selected === true ) {
+        temp[event.Id].selected = false;
+        // console.log(temp[event.Id -1].selected);
+        this.setState({
+          temporaryModalListItem : temp 
+        });
       } else {
-        temporaryModalListItem[event.id -1].selected = true; 
+        temp[event.Id].selected = true; 
+        // console.log(temp[event.Id -1].selected);
+        this.setState({
+          temporaryModalListItem : temp 
+        });
       }
 
-        this.setState({
-          temporaryModalListItem : temporaryModalListItem 
-        });
-
+        // console.log(this.state.temporaryModalListItem[event.Id-1].selected)
   }
 
   render() {
@@ -67,8 +74,8 @@ class ModalContainer extends Component {
           
             if ( typeof data != 'undefined' ){
               data.forEach(function(item, i){
-                if (i < number && item.votes === 0 ){
-                  list.push(<ModalListItem key={item.id} item={item} doSomeShit={that.doSomeShit} />); 
+                if (i < number && item.count === 0 ){
+                  list.push(<ModalListItem key={item.Id} item={item} doSomeShit={that.doSomeShit} />); 
                 }
             }.bind(this)); 
           }

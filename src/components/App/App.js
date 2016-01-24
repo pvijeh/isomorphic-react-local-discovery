@@ -60,7 +60,7 @@ componentWillUnmount() {
     }
 
     return !this.props.error ? (
-      <div>
+      <div className="App-siteWrapper">
         <Header />
         {displayModal}
         {this.props.children}

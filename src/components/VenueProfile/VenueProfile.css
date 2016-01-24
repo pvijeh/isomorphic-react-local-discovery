@@ -11,13 +11,16 @@
 
   h1{
     text-align: center;
+    margin-bottom: 2rem;
   }
 
   h3{
-    font-size: 3.0rem;
-    line-height: 3.4rem;
-    margin-bottom: 6.0rem;
+    font-size: 2.2rem;
+    line-height: 2.4rem;
     text-align: center;
+    width: 90%;
+    display:block;
+    margin:0px auto 3.0rem auto;
   }
 
 }
@@ -38,16 +41,105 @@
 }
 
 .VenueProfile-MainImage{
-    width: 100%;
     background-color: blue;
-    padding-top: 60%;
+    text-align: center;
+    padding: 40% 5px 0px 5px; 
+    width:100%;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 15px 0px 15px 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -ms-border-radius:3px;
+    -o-border-radius:3px;
+    border-radius:3px;
+
+    &:before {
+    content:'';
+    position: absolute;
+    top: 0;      
+    left: 0;
+    height:100%;
+    width: 100%;
+    border-radius: 3px;
+    opacity: 0.7;    
+    background-color: var(--brand-purple-dark);
+    };
+    
+    .App-VoteButtonContainer{        
+    background-color: white; 
+    border-radius: 5px; 
+    color:#222;
+    }
+}
+
+.VenueProfile-MainImageInner{
+    margin:-20% auto 0 auto; 
+    transform: translateY(-100px);
+    min-height: 200px;
+    max-width: 500px; 
+    color:white; 
+}
+
+.VenueProfile-MainImageInner p {
+    max-width: 550px; 
+    font-size: 1.6rem;
+    line-height: 2.0rem;
+    display:block;
+    margin:auto; 
+}
+
+.VenueProfile-MainButtonContainer{
+    max-width: 250px; 
+    margin: 15px auto; 
+}
+
+.VenueProfile-MainButtonContainer p {
+    line-height: 45px;
+    border-radius: 5px; 
+    margin-left: 50px; 
+    background-color: var(--brand-purple); 
+    color: white;
+    cursor: pointer; 
 }
 
 .VenueProfile-ReviewSection{
     width: 100%;
     text-align: center;
     background-color: purple;
-    padding: 100px 0px 100px 0px;
+    padding: 40px 0px 40px 0px;
+    border:1px solid var(--purple-muted);  
+
+    &:first-child{
+        border-bottom-left-radius: 3px; 
+        border-bottom-right-radius: 3px; 
+    }
+    
+    &:last-child{
+        border-bottom-left-radius: 3px; 
+        border-bottom-right-radius: 3px; 
+    }
+
+    &:nth-child(2){
+        border-top-left-radius: 3px; 
+        border-top-right-radius: 3px; 
+    }
+
+}
+
+.VenueProfile-ReviewSection--Half{
+    margin: -40px 0px;
+    padding: 40px 0px;
+    width: 50%;
+    float:left;
+}
+
+.VenueProfile-ReviewSection--Half h3 {
+    max-width: 250px; 
 }
 
 .VenueProfile-ReviewSection:after{
@@ -57,7 +149,7 @@
 }
 
 .VenueProfile-ReviewSection:nth-child(2n){
-    background-color: #9d9d9d; 
+    background-color: var(--off-white-background); 
 }
 
 .VenueProfile-BestListItemColumn {
@@ -75,9 +167,9 @@
 }
 
 .VenueProfile-BestListItem{
-    height: 60px; 
+    height: 50px; 
     width: 96%;
-    max-width: 450px;
+    max-width: 300px;
     margin: 5px 15px;
     position: relative;
     display:inline-block;
@@ -124,10 +216,7 @@
         line-height: 40px;
     }
 
-    .VenueProfile-ListItemText p {
-        font-size: 1.4rem;
-        line-height: 1.5rem;
-    }
+    
 }
 
 .VenueProfile-BestListItem--modalSelected{
@@ -142,11 +231,16 @@
         height: 100%;
         width: 16%;
         float: left;
-        font-size: 50px; 
-        line-height: 60px; 
+        font-size: 3rem; 
+        line-height: 50px; 
         text-align: center; 
         margin:0;
         padding:0;
+
+        p {
+            font-size: 1.4rem;
+            line-height: 1.5rem;
+        }
 
         img {
             max-width: 100%;
@@ -168,8 +262,8 @@
     p {
         display: table-cell;
         vertical-align: middle; 
-        font-size: 1.6rem;
-        line-height: 1.7rem;
+        font-size: 1.4rem;
+        line-height: 1.6rem;
     }
 }
 
@@ -177,55 +271,4 @@
     width: 100%;
     text-align: center; 
     margin: 30px auto;
-}
-
-.VenueProfile-ListItemVoteContainer{
-    width: 16%;
-    display: table; 
-    height: 100%;
-    float: left;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding:8px; 
-    position: relative;
-    z-index: 2;
-
-    span {
-        display:table-cell;
-        font-size: 1.4rem;
-        line-height: 1.4rem;
-        vertical-align: middle;
-        text-align: center;
-        padding: 0;
-        margin: 0;
-        position: relative;
-        opacity:.8;
-        -webkit-transition: 0.3s;
-        -o-transition: 0.3s;
-        transition: 0.3s;
-        cursor: pointer;
-    }
-
-    span:hover{
-        opacity: 1;
-        -webkit-transition: 0.3s;
-        -o-transition: 0.3s;
-        transition: 0.3s;
-    }
-
-    span:before{
-    font-family: FontAwesome;
-    content: "\f0d8";
-    positio:absolute; 
-    top: 0px;
-    font-size: 30px;
-    text-align: center;
-    height: 15px; 
-    display:block;
-    left: 50%;
-    margin-left: 25%;
-    width: 30px; 
-    }
-
 }

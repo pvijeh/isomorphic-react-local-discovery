@@ -7,31 +7,8 @@ import Link from '../Link';
 import AppActions from '../../actions/appActions';
 import AppStore from '../../stores/appStore'; 
 import ListItem from '../ListItem';
+import VoteButton from '../VoteButton';
 
-
-
-let venues = [
-  {id: 1, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 2, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 3, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 4, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 5, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 6, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 7, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 8, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 9, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 10, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 11, venue: 'venue name', votes: 1, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 12, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 13, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 14, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 15, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 16, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 17, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 18, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 19, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'},
-  {id: 20, venue: 'venue name', votes: 0, venueIcon: 'fa-adjust', description: 'one line description not', route: '/venue'}
-];
 
 // gets the new venues list from the store 
 let getPopupState = function() {
@@ -44,7 +21,7 @@ class VenueProfile extends Component {
 constructor (props) {
     super(props)
     this.state =  { 
-      trendingVenues: venues, 
+      trendingVenues: this.props.content.success.placeAttributes, 
       number_favoriteTags: 10,
       number_CrowdTags: 5,
       number_OtherTags: 5,
@@ -52,6 +29,11 @@ constructor (props) {
     }
     this.onCloseModal = this.onCloseModal.bind(this);
   }
+
+  handleVoteClick = event => {
+  console.log(event);
+  AppActions.displayPopup(event);
+}
 
   handleClick_addTag = event =>{
       // sends popup click event to actions 
@@ -114,11 +96,14 @@ componentWillUnmount() {
 
     console.log(this.props.content);
 
+    console.log(this.props.content.success.placeAttributes); 
+
     const venue = 'Venue Name';
     const reviewSectionOne = 'Why People Like ';
     const reviewSectionTwo = 'What Kind of Crowd Goes to ';
     const reviewSectionThree = 'What Kind of Crowd Goes to ';
-    const reviewSectionFour = ' Appears on These Best of Lists';
+    const reviewSectionFour = ' Type of crowd you will find at';
+    const mainImage = {background: 'url(http://lorempixel.com/1250/600/)'}; 
 
       let venueList_favoriteTags = [],
       venueList_CrowdTags = [],
@@ -137,15 +122,15 @@ componentWillUnmount() {
           
             if (typeof data != 'undefined' ){
               data.forEach(function(item, i){
-                if (i < number && item.votes > 0 ){
-                  list.push(<ListItem key={item.id} item={item}/>); 
+                if (i < number && item.count> 0 ){
+                  list.push(<ListItem key={item.Id} item={item}/>); 
                 }
             }); 
           }
         }
        
-        venueListIterator(venueList_favoriteTags, this.state.trendingVenues, this.state.number_favoriteTags); 
-        venueListIterator(venueList_CrowdTags, this.state.trendingVenues, this.state.number_CrowdTags); 
+        venueListIterator(venueList_favoriteTags, this.state.trendingVenues.slice(2,20), this.state.number_favoriteTags); 
+        venueListIterator(venueList_CrowdTags, this.state.trendingVenues.slice(9,20), this.state.number_CrowdTags); 
         venueListIterator(venueList_OtherTags, this.state.trendingVenues, this.state.number_OtherTags); 
         venueListIterator(venueList_BestListTags, this.state.trendingVenues, this.state.number_BestListTags); 
 
@@ -159,10 +144,17 @@ componentWillUnmount() {
     return (
       <div className="VenueProfile">
         <div className="VenueProfile-container">
-          
-          <div className="VenueProfile-MainImage">
-            <h1>{venue}</h1>
-            main image goes here,  not sure if I will keep a large hero image 
+         
+          <div className="VenueProfile-MainImage" style={mainImage}>
+            <div className="VenueProfile-MainImageInner">
+              <h1>{venue}</h1>
+              <p>main image goes here,  not sure if I will keep a large hero image</p>
+              <div className="VenueProfile-MainButtonContainer">
+                    
+                    <VoteButton item={this.state.trendingVenues[1]}/>
+                    <p onClick={this.handleVoteClick.bind(null, this.state.trendingVenues[1])}>FAVORITE</p>
+              </div>
+            </div>
           </div>
           
         <div className="VenueProfile-ReviewSection">
@@ -178,16 +170,25 @@ componentWillUnmount() {
         </div>
           
           <div className="VenueProfile-ReviewSection">
-              <h3>{venue+reviewSectionFour}</h3>
-
+            
+            <div className="VenueProfile-ReviewSection--Half">
+              <h3>{reviewSectionFour+' '+venue}</h3>
                 {venueList_CrowdTags}
-
                 <div className="VenueProfile-ButtonContainer">
                   <button> View More Tags </button> 
                   <button> Add New Tag </button> 
                 </div>
-
-          </div>
+            </div>
+            
+            <div className="VenueProfile-ReviewSection--Half">
+              <h3>{reviewSectionFour+' '+venue}</h3>
+                {venueList_CrowdTags}
+                <div className="VenueProfile-ButtonContainer">
+                  <button> View More Tags </button> 
+                  <button> Add New Tag </button> 
+                </div>
+            </div>
+         </div>
 
           <div className="VenueProfile-ReviewSection">
 

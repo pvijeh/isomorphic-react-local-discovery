@@ -1,0 +1,6 @@
+{
+  "name": "VoteButton",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./VoteButton.js"
+}
