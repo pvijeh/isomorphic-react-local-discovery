@@ -11,22 +11,20 @@ class ModalListItem extends Component {
   }
 
   handleModalListClick (event){
-    this.props.doSomeShit(event);  
+    this.props.trackClickedItems(event);  
   }
 
   render(){
 
-    // console.log(this.props.item);
-
     let selectedClass = ''; 
     if(this.props.item.selected === true ){
+      console.log('do some shiz');
       selectedClass = 'VenueProfile-BestListItem--modalSelected' 
     }
 
     return(
       <div 
       className={`VenueProfile-BestListItem VenueProfile-BestListItem--modal ${selectedClass}`}
-      // onClick={this.handleModalListClick.bind(this, this.props.item)}
       onClick={this.handleModalListClick.bind(this, this.props.item)}
       >
         <div className={`VenueProfile-ListItemIcon fa ${this.props.item.CategoryIcon}`}>

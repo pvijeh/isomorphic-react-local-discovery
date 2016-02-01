@@ -8,7 +8,6 @@ import VoteButton from '../VoteButton';
 class ListItem extends Component {
 
 handleVoteClick = event => {
-  console.log(event);
   AppActions.displayPopup(event);
 }
 
