@@ -24,7 +24,7 @@ class TrendingVenue extends Component {
 
   render() {
 
-    var TrendingVenues = [];
+    let TrendingVenues = [];
 
     const title = 'this thing title ';
 

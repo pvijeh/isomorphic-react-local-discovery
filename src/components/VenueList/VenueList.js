@@ -5,7 +5,7 @@ import styles from './VenueList.css';
 import withStyles from '../../decorators/withStyles';
 import TrendingVenue from '../TrendingVenue';
 
-// this is temporary data to be replaced with 
+// this is temporary data to be replaced with data from API 
 
 let trendingVenues = [
   {id: 1, venue: 'venue name', votes: 111, venueImg: 'http://lorempixel.com/200/200', description: 'one line description not more than 100 characters', route: '/testvenue'},
@@ -29,11 +29,10 @@ class VenueList extends Component {
 
   render() {
 
-    var renderVenueList = [];
+    let renderVenueList = [];
 
         if (typeof trendingVenues != 'undefined' ){
-          var thing = trendingVenues; 
-            thing.forEach(function(item){
+            trendingVenues.forEach(function(item){
             renderVenueList.push(<TrendingVenue key={item.id} item={item}/>); 
           }); 
         }
