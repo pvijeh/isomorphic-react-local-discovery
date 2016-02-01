@@ -25,6 +25,29 @@
 
 }
 
+.VenueProfile-MapContainer{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%; 
+    height: 100%; 
+    padding-top: 50%; 
+    background-image: url('http://lorempixel.com/g/600/300/');
+    background-size: cover; 
+}
+
+.VenueProfile-DetailsContainer{
+    width: 90%;
+    text-align: left; 
+    margin-left: 5%;
+    margin-right: 5%;
+    
+    p {
+        font-size: 1.4rem; 
+        line-height: 1.6rem;      
+    }
+
+}
+
 .VenueProfile-ImageContainer{
     width:100%;
     background-color: green;
@@ -32,12 +55,12 @@
 }
 
 .VenueProfile-Image{
-    max-width: 280px; 
+    max-width: 30%; 
     width: 96%;
-    height: 270px; 
+    padding-top:20%;
     background-color: blue;
     display: inline-block; 
-    margin: 15px 2%;
+    margin: 15px 1%;
 }
 
 .VenueProfile-MainImage{
@@ -73,13 +96,13 @@
     .App-VoteButtonContainer{        
     background-color: white; 
     border-radius: 5px; 
-    color:#222;
+    color: #999;
     }
 }
 
 .VenueProfile-MainImageInner{
     margin:-20% auto 0 auto; 
-    transform: translateY(-100px);
+    transform: translateY(-50%);
     min-height: 200px;
     max-width: 500px; 
     color:white; 
@@ -110,23 +133,14 @@
 .VenueProfile-ReviewSection{
     width: 100%;
     text-align: center;
-    background-color: purple;
+    background-color: var(--off-white-light); 
     padding: 40px 0px 40px 0px;
-    border:1px solid var(--purple-muted);  
+    border:1px solid var(--purple-muted-dark);  
+    margin-bottom:  5px;
+    border-radius: 3px; 
 
-    &:first-child{
-        border-bottom-left-radius: 3px; 
-        border-bottom-right-radius: 3px; 
-    }
-    
-    &:last-child{
-        border-bottom-left-radius: 3px; 
-        border-bottom-right-radius: 3px; 
-    }
-
-    &:nth-child(2){
-        border-top-left-radius: 3px; 
-        border-top-right-radius: 3px; 
+    &:nth-child(2n){
+        background-color: var(--off-white-dark); 
     }
 
 }
@@ -146,10 +160,6 @@
     display: table;
     width: 100%;
     content: "";
-}
-
-.VenueProfile-ReviewSection:nth-child(2n){
-    background-color: var(--off-white-background); 
 }
 
 .VenueProfile-BestListItemColumn {

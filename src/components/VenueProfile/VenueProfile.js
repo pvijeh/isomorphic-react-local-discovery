@@ -9,7 +9,6 @@ import AppStore from '../../stores/appStore';
 import ListItem from '../ListItem';
 import VoteButton from '../VoteButton';
 
-
 // gets the new venues list from the store 
 let getPopupState = function() {
   return AppStore.sendPopupState();
@@ -107,6 +106,7 @@ componentWillUnmount() {
 
       let venueList_favoriteTags = [],
       venueList_CrowdTags = [],
+      venueList_GettingInTags = [],
        venueList_OtherTags = [],
        venueList_BestListTags = []; 
 
@@ -131,6 +131,7 @@ componentWillUnmount() {
        
         venueListIterator(venueList_favoriteTags, this.state.trendingVenues.slice(2,20), this.state.number_favoriteTags); 
         venueListIterator(venueList_CrowdTags, this.state.trendingVenues.slice(9,20), this.state.number_CrowdTags); 
+        venueListIterator(venueList_GettingInTags, this.state.trendingVenues.slice(3,9), this.state.number_CrowdTags); 
         venueListIterator(venueList_OtherTags, this.state.trendingVenues, this.state.number_OtherTags); 
         venueListIterator(venueList_BestListTags, this.state.trendingVenues, this.state.number_BestListTags); 
 
@@ -170,48 +171,31 @@ componentWillUnmount() {
         </div>
           
           <div className="VenueProfile-ReviewSection">
-            
             <div className="VenueProfile-ReviewSection--Half">
               <h3>{reviewSectionFour+' '+venue}</h3>
                 {venueList_CrowdTags}
-                <div className="VenueProfile-ButtonContainer">
-                  <button> View More Tags </button> 
-                  <button> Add New Tag </button> 
-                </div>
             </div>
-            
             <div className="VenueProfile-ReviewSection--Half">
-              <h3>{reviewSectionFour+' '+venue}</h3>
-                {venueList_CrowdTags}
-                <div className="VenueProfile-ButtonContainer">
-                  <button> View More Tags </button> 
-                  <button> Add New Tag </button> 
-                </div>
+                <h3>{reviewSectionFour+' '+venue}</h3>
+                {venueList_GettingInTags}
             </div>
          </div>
 
-          <div className="VenueProfile-ReviewSection">
-
-              <h3>{venue+reviewSectionFour}</h3>
-          
-                {venueList_OtherTags}
-
-                <div className="VenueProfile-ButtonContainer">
-                  <button> View More Tags </button> 
-                  <button> Add New Tag </button> 
-                </div>
-       
+        <div className="VenueProfile-ImageContainer VenueProfile-ReviewSection">
+            <div className="VenueProfile-ReviewSection--Half">
+            <div className="VenueProfile-DetailsContainer">
+                <p>Venue Type: </p>
+                <p>Neighborhood: </p>
+                <p>Phone Number: </p>
+                <p>Address: </p>
+                <p>Website: </p>
+              </div>
+            </div>
+            <div className="VenueProfile-ReviewSection--Half">
+              <div className="VenueProfile-MapContainer">
+              map
+              </div>
           </div>
-
-        <div className="VenueProfile-ReviewSection">
-          <h3>{reviewSectionOne+venue}</h3>
-              {venueList_BestListTags}
-
-                <div className="VenueProfile-ButtonContainer">
-                  <button> View More Tags </button> 
-                  <button> Add New Tag </button> 
-                </div>
-
         </div>
 
           <div className="VenueProfile-ImageContainer VenueProfile-ReviewSection">

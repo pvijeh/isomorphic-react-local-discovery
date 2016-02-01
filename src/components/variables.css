@@ -15,15 +15,18 @@
   --brand-purple:        color(#373277); 
   --brand-purple-dark:        color(#373277 lightness(-10%)); 
   --brand-purple-light:        color(#373277 lightness(+10%)); 
-  --off-white-background: color(#f8f7f7); 
+  --off-white: color(#f8f7f7);
+  --off-white-light: color(#f8f7f7 lightness(+2%));
+  --off-white-dark: color(#f8f7f7 lightness(-2%)); 
   --gray-light:             color(#f6f6f6);
-  --purple-muted:       color(rgba(106,103,119,0.10));
+  --purple-muted:       color(rgba(106,103,119, 0.15));
+  --purple-muted-dark:       color(rgba(106,103,119, 0.30));
 
   /*
    * Typography
    * ======================================================================== */
 
-  --font-family-base:      'Segoe UI', 'HelveticaNeue-Light', sans-serif;
+  --font-family-base: 'Open Sans', sans-serif;
 
   /*
    * Layout
