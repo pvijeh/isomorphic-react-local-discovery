@@ -93,7 +93,6 @@ class ModalContainer extends Component {
       </div>
     );
   }
-
 }
 
 export default ModalContainer;

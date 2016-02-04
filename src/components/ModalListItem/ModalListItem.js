@@ -35,7 +35,6 @@ class ModalListItem extends Component {
       </div>
       )
   }
-
 }
 
 export default ModalListItem;
