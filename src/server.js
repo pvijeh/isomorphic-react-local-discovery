@@ -9,7 +9,7 @@ import Router from './routes';
 import Html from './components/Html';
 
 const server = global.server = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 80;
 server.set('port', port);
 
 //
