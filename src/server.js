@@ -8,8 +8,9 @@ import ReactDOM from 'react-dom/server';
 import Router from './routes';
 import Html from './components/Html';
 
+
 const server = global.server = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 5000;
 server.set('port', port);
 
 //

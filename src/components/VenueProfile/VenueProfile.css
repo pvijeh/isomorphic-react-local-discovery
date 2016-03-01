@@ -150,6 +150,12 @@
     padding: 40px 0px;
     width: 50%;
     float:left;
+
+    @media(--screen-phone-min){
+        width: 96%;  
+        margin: 0;
+    }
+
 }
 
 .VenueProfile-ReviewSection--Half h3 {
@@ -188,7 +194,25 @@
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
+    
+    @media (--screen-lg-min) {
+        max-width: 375px;
+    }
 
+    @media (--screen-md-min) {
+        max-width: 330px;
+    }
+
+    @media (--screen-sm-min) {
+        max-width: 250px;
+    }
+
+    @media (--screen-phone-min) {
+        max-width: 400px;
+    }
+
+    
+    
     a { 
         position:absolute; 
         border-radius: 5px; 

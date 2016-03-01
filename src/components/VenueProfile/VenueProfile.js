@@ -83,14 +83,12 @@ componentWillUnmount() {
     AppStore.removeChangeListener(this.onCloseModal);
   }
 
-  // not sure what this context stuff is about,  need to research it 
-
-  // static contextTypes = {
-  //   onSetVenue: PropTypes.func.isRequired,
-  //   onSetreviewSectionOne: PropTypes.func.isRequired,
-  //   onSetreviewSectionTwo: PropTypes.func.isRequired,
-  //   onSetreviewSectionThree: PropTypes.func.isRequired,
-  // };
+  static contextTypes = {
+    onSetVenue: PropTypes.func.isRequired,
+    onSetreviewSectionOne: PropTypes.func.isRequired,
+    onSetreviewSectionTwo: PropTypes.func.isRequired,
+    onSetreviewSectionThree: PropTypes.func.isRequired,
+  };
 
   render() {
 
@@ -98,11 +96,11 @@ componentWillUnmount() {
 
     console.log(this.props.content.success.placeAttributes); 
 
-    const venue = 'Venue Name';
+    const venue = '[Hypothetical Venue]';
     const reviewSectionOne = 'Why People Like ';
     const reviewSectionTwo = 'What Kind of Crowd Goes to ';
-    const reviewSectionThree = 'What Kind of Crowd Goes to ';
-    const reviewSectionFour = ' Type of crowd you will find at';
+    const reviewSectionThree = 'Type of crowd at ';
+    const reviewSectionFour = 'How to get in to ';
     const mainImage = {background: 'url(http://lorempixel.com/1250/600/)'}; 
 
       let venueList_favoriteTags = [],
@@ -173,7 +171,7 @@ componentWillUnmount() {
           
           <div className="VenueProfile-ReviewSection">
             <div className="VenueProfile-ReviewSection--Half">
-              <h3>{reviewSectionFour+' '+venue}</h3>
+              <h3>{reviewSectionThree+' '+venue}</h3>
                 {venueList_CrowdTags}
             </div>
             <div className="VenueProfile-ReviewSection--Half">
