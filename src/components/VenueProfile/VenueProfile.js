@@ -9,7 +9,6 @@ import AppStore from '../../stores/appStore';
 import ListItem from '../ListItem';
 import VoteButton from '../VoteButton';
 
-
 // gets the new venues list from the store 
 let getPopupState = function() {
   return AppStore.sendPopupState();
@@ -122,19 +121,23 @@ componentWillUnmount() {
             if (typeof data != 'undefined' ){
               data.forEach(function(item, i){
                 if (i < number && item.count > 0 ){
-                  list.push(<ListItem key={item.Id} item={item}/>); 
+                  list.push(<ListItem key={item.Id} item={item}/> ); 
                 }
             }); 
           }
         }
-       
+      
+       //
+
         venueListIterator(venueList_favoriteTags, this.state.trendingVenues.slice(2,20), this.state.number_favoriteTags); 
         venueListIterator(venueList_CrowdTags, this.state.trendingVenues.slice(9,20), this.state.number_CrowdTags); 
         venueListIterator(venueList_GettingInTags, this.state.trendingVenues.slice(3,9), this.state.number_CrowdTags); 
         venueListIterator(venueList_OtherTags, this.state.trendingVenues, this.state.number_OtherTags); 
         venueListIterator(venueList_BestListTags, this.state.trendingVenues, this.state.number_BestListTags); 
 
-    // not sure what this context stuff is about,  need to research it 
+    //
+    //  need to pass in context to fix these guys below 
+    //
 
     // this.context.onSetVenue(venue);
     // this.context.reviewSectionOne(reviewSectionOne);

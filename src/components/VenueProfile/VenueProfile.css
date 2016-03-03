@@ -12,6 +12,12 @@
   h1{
     text-align: center;
     margin-bottom: 2rem;
+
+    @media (--screen-phone-min) {
+        background-color: red; 
+        font-size: 2.5rem;
+    }
+  
   }
 
   h3{
@@ -63,10 +69,10 @@
     margin: 15px 1%;
 }
 
-.VenueProfile-MainImage{
+div.VenueProfile-MainImage{
     background-color: blue;
     text-align: center;
-    padding: 40% 5px 0px 5px; 
+    padding: 40% 10px 0px 10px; 
     width:100%;
     position: relative;
     background-size: cover;
@@ -93,15 +99,31 @@
     background-color: var(--brand-purple-dark);
     };
     
+    /* overrides standard vote button color*/ 
     .App-VoteButtonContainer{        
     background-color: white; 
     border-radius: 5px; 
     color: #999;
     }
+
+    @media (--screen-phone-min) {
+        padding-top: 80%; 
+    }
+
+    @media (--screen-phone-min) {
+        padding-top: 120%; 
+    }
+
 }
 
 .VenueProfile-MainImageInner{
-    margin:-20% auto 0 auto; 
+    position:absolute; 
+    top: 50%; 
+    left: 0; 
+    right: 0; 
+    width: 100%; 
+    margin:0 auto; 
+    padding: 15px; 
     transform: translateY(-50%);
     min-height: 200px;
     max-width: 500px; 
