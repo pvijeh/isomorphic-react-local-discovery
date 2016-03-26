@@ -13,8 +13,7 @@
     text-align: center;
     margin-bottom: 2rem;
 
-    @media (--screen-phone-min) {
-        background-color: red; 
+    @media (--screen-less600) {
         font-size: 2.5rem;
     }
   
@@ -32,9 +31,8 @@
 }
 
 .VenueProfile-MapContainer{
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%; 
+    width: 94%;
+    margin: 0 3%    ;
     height: 100%; 
     padding-top: 50%; 
     background-image: url('http://lorempixel.com/g/600/300/');
@@ -56,17 +54,22 @@
 
 .VenueProfile-ImageContainer{
     width:100%;
-    background-color: green;
     text-align: center;
 }
 
 .VenueProfile-Image{
-    max-width: 30%; 
-    width: 96%;
-    padding-top:20%;
-    background-color: blue;
+    max-width: 29%; 
+    width: 98%;
+    min-width: 290px; 
+    padding: 0; 
+    position: relative;
     display: inline-block; 
-    margin: 15px 1%;
+    margin: 5px 1%;
+}
+
+.VenueProfile-ImageInner{
+    background-color:blue; 
+    padding-top: 80%; 
 }
 
 div.VenueProfile-MainImage{
@@ -101,16 +104,18 @@ div.VenueProfile-MainImage{
     
     /* overrides standard vote button color*/ 
     .App-VoteButtonContainer{        
+    height: 45px;
+    overflow: hidden;
     background-color: white; 
     border-radius: 5px; 
     color: #999;
     }
 
-    @media (--screen-phone-min) {
+    @media (--screen-less768) {
         padding-top: 80%; 
     }
 
-    @media (--screen-phone-min) {
+    @media (--screen-less480) {
         padding-top: 120%; 
     }
 
@@ -156,7 +161,7 @@ div.VenueProfile-MainImage{
     width: 100%;
     text-align: center;
     background-color: var(--off-white-light); 
-    padding: 40px 0px 40px 0px;
+    padding: 20px 0px 20px 0px;
     border:1px solid var(--purple-muted-dark);  
     margin-bottom:  5px;
     border-radius: 3px; 
@@ -168,14 +173,14 @@ div.VenueProfile-MainImage{
 }
 
 .VenueProfile-ReviewSection--Half{
-    margin: -40px 0px;
-    padding: 40px 0px;
+    margin: -20px 0px;
+    padding: 20px 0px;
     width: 50%;
     float:left;
 
-    @media(--screen-phone-min){
+    @media(--screen-less768){
         width: 96%;  
-        margin: 0;
+        margin: 0 2%;
     }
 
 }
@@ -206,9 +211,9 @@ div.VenueProfile-MainImage{
 
 .VenueProfile-BestListItem{
     height: 50px; 
-    width: 96%;
+    width: 98%;
     max-width: 300px;
-    margin: 5px 15px;
+    margin: 5px 1%;
     position: relative;
     display:inline-block;
     border-radius: 5px; 
@@ -217,19 +222,19 @@ div.VenueProfile-MainImage{
     -o-transition: 0.3s;
     transition: 0.3s;
     
-    @media (--screen-lg-min) {
+    @media (--screen-greater1200) {
         max-width: 375px;
     }
 
-    @media (--screen-md-min) {
+    @media (--screen-less1030) {
         max-width: 330px;
     }
 
-    @media (--screen-sm-min) {
+    @media (--screen-less768) {
         max-width: 250px;
     }
 
-    @media (--screen-phone-min) {
+    @media (--screen-less600) {
         max-width: 400px;
     }
 
@@ -251,37 +256,6 @@ div.VenueProfile-MainImage{
         }
 }
 
-.VenueProfile-BestListItem--modal{
-    max-width: 250px;
-    height: 40px; 
-    margin: 5px 10px;
-    border: 1px solid rgba(50,50,50,.05);
-    opacity:.75;
-    cursor:pointer;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
-
-    .VenueProfile-ListItemText{
-        width: 75%;
-    }
-
-    .VenueProfile-ListItemIcon{
-        width: 25%; 
-        font-size: 30px;
-        line-height: 40px;
-    }
-
-    
-}
-
-.VenueProfile-BestListItem--modalSelected{
-    background-color:red; 
-    
-    &:hover {
-        background-color: red;
-    }
-}
 
 .VenueProfile-ListItemIcon{
         height: 100%;
@@ -306,7 +280,6 @@ div.VenueProfile-MainImage{
     }
 
 .VenueProfile-ListItemText {
-    width: 68%;
     height: 100%;
     display:table;
     text-align: left; 

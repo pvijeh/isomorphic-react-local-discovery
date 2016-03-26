@@ -32,19 +32,19 @@
    * Layout
    * ======================================================================== */
 
-  --max-content-width:     1000px;
+  --max-content-width:     1150px;
 
   /*
    * Media queries breakpoints
    * ======================================================================== */
 
-@custom-media  --screen-iphone (width <= 320px);  /* iphone retina screen  */
-@custom-media  --screen-xs-min (width <= 480px);   /* Extra small screen / phone */
-@custom-media  --screen-phone-min (width <= 600px);  /* large phone screen  */
-@custom-media  --screen-sm-min (width <= 768px); /* Small screen / tablet */
-@custom-media  --screen-md-min (width <= 992px);   /* Medium screen / desktop */
-@custom-media  --screen-lg-min (width <= 1030px);  /* full screen / wide desktop */
-@custom-media  --screen-full-min (width >= 1200px);  /* full screen / wide desktop */
+@custom-media  --screen-less320 (width <= 320px);  /* iphone retina screen  */
+@custom-media  --screen-less480 (width <= 480px);   /* Extra small screen / phone */
+@custom-media  --screen-less600 (width <= 600px);  /* large phone screen  */
+@custom-media  --screen-less768 (width <= 768px); /* Small screen / tablet */
+@custom-media  --screen-less992 (width <= 992px);   /* Medium screen / desktop */
+@custom-media  --screen-less1030 (width <= 1030px);  /* full screen / wide desktop */
+@custom-media  --screen-greater1200 (width >= 1200px);  /* full screen / wide desktop */
 
   /*
    * Animations

@@ -12,6 +12,7 @@ class ModalListItem extends Component {
 
   handleModalListClick (event){
     this.props.trackClickedItems(event);  
+    console.log(event); 
   }
 
   render(){
@@ -30,7 +31,7 @@ class ModalListItem extends Component {
         <div className={`VenueProfile-ListItemIcon fa ${this.props.item.CategoryIcon}`}>
         </div>
         <div className="VenueProfile-ListItemText">
-          <p>{this.props.item.description + this.props.item.count}</p>
+          <p>{this.props.item.AttributeName}</p>
         </div>
       </div>
       )

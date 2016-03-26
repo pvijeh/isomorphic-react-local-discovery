@@ -219,13 +219,14 @@ textarea {
   }
 
   button {
-    padding:7px 5px;
+    padding:10px 10px;
     margin: 5px; 
     border-radius: 5px; 
-    border: 2px solid red;
-    font-size: 1.2rem;
-    line-height: 1.2rem;
-    background-color: transparent;
+    border: 2px solid var(--brand-purple);
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    background-color: var(--brand-purple); 
+    color: white; 
     min-width: 120px; 
     opacity: .8;
     -webkit-transition: 0.3s;

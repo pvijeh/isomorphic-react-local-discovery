@@ -100,7 +100,7 @@ componentWillUnmount() {
     const reviewSectionTwo = 'What Kind of Crowd Goes to ';
     const reviewSectionThree = 'Type of crowd at ';
     const reviewSectionFour = 'How to get in to ';
-    const mainImage = {background: 'url(http://lorempixel.com/1250/600/)'}; 
+    const mainImage = {backgroundImage: 'url(http://lorempixel.com/1250/600/)'}; 
 
       let venueList_favoriteTags = [],
       venueList_CrowdTags = [],
@@ -201,11 +201,37 @@ componentWillUnmount() {
         </div>
 
           <div className="VenueProfile-ImageContainer VenueProfile-ReviewSection">
-              <div className="VenueProfile-Image">image</div>
-              <div className="VenueProfile-Image">image</div>
-              <div className="VenueProfile-Image">image</div>
+              <div className="VenueProfile-Image">
+                <div className="VenueProfile-ImageInner">
+                  <p>stuff stuff </p>
+                </div>
+              </div>
+              <div className="VenueProfile-Image">
+                <div className="VenueProfile-ImageInner">
+                  <p>stuff stuff </p>
+                </div>
+              </div>
+              <div className="VenueProfile-Image">
+                <div className="VenueProfile-ImageInner">
+                  <p>stuff stuff </p>
+                </div>
+              </div>
+              <div className="VenueProfile-Image">
+                <div className="VenueProfile-ImageInner">
+                  <p>stuff stuff </p>
+                </div>
+              </div>
+              <div className="VenueProfile-Image">
+                <div className="VenueProfile-ImageInner">
+                  <p>stuff stuff </p>
+                </div>
+              </div>
+              <div className="VenueProfile-Image">
+                <div className="VenueProfile-ImageInner">
+                  <p>stuff stuff </p>
+                </div>
+              </div>
           </div>
-
         </div>
       </div>
     );

@@ -24,8 +24,8 @@ class ModalContainer extends Component {
 
       this.state.temporaryModalListItem.forEach( function(item){
         if (item.selected == true ) {
-          tempList[item.Id - 1].count = 1;  
-          tempList[item.Id - 1].selected = false;  
+          tempList[item.Id].count = 1;  
+          tempList[item.Id].selected = false;  
         }
 
       });
@@ -43,11 +43,11 @@ class ModalContainer extends Component {
 
       let modalList = this.state.temporaryModalListItem; 
 
-      if (modalList[event.Id -1].selected === true ) {
-        modalList[event.Id -1].selected = false;
+      if (modalList[event.Id].selected === true ) {
+        modalList[event.Id].selected = false;
 
       } else {
-        modalList[event.Id -1].selected = true; 
+        modalList[event.Id].selected = true; 
 
       }
 

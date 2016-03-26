@@ -58,7 +58,36 @@
     width: 200px; 
 }
 
-.VenueProfile-BestListItem--modalSelected{
-  background-color: red; 
+.VenueProfile-BestListItem--modal{
+    max-width: 250px;
+    height: 40px; 
+    margin: 5px 10px;
+    border: 1px solid rgba(50,50,50,.05);
+    opacity:.75;
+    cursor:pointer;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: var(--brand-purple-dark); 
+      color: white;  
+      opacity: .75; 
+    }
+
+    .VenueProfile-ListItemIcon{
+        width: 25%; 
+        font-size: 30px;
+        line-height: 38px;
+    }
 }
 
+.VenueProfile-BestListItem--modalSelected{
+  background-color: var(--brand-purple-dark); 
+  color: white;  
+
+  &:hover {
+    background-color: transparent;
+    color: #222; 
+  }
+}
